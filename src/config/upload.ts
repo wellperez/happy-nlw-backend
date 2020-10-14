@@ -11,7 +11,7 @@ export default {
   storage: multer.diskStorage({
     destination: path.join(__dirname, '..', '..', 'uploads'),
     filename: (request, file, cb) => {
-      const fileName = `${Date.now()}-${(file.originalname).substring(0,9)}-${getRandomInt(1,99999999)}`
+      const fileName = `${Date.now()}-${getRandomInt(1,99999999)}-${(file.originalname).substring(file.originalname.length - 10)}`
 
       cb(null, fileName)
     }
